@@ -1,7 +1,9 @@
 package com.mytests.spring.springShellTest.commands;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.shell.standard.ShellMethod;
-import org.springframework.shell.standard.ShellOption;
+import org.springframework.stereotype.Component;
 
 /**
  * *
@@ -9,8 +11,13 @@ import org.springframework.shell.standard.ShellOption;
  * <p>Project: spring-shell-test</p>
  * *
  */
-public class SomeCommands {
+@Component
+public class SomeCommandsOutsideTheShellComponent
+{
 
+
+    // this command is not available really - the commands should be registered only
+    // inside @ShellComponent-annotated classes
     @ShellMethod(value = "some command", group = "first group")
     public String tryMe(){
         return "it works!";

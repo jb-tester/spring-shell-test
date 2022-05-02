@@ -12,22 +12,23 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-@Pattern(regexp="[0-9]*")
+@Pattern(regexp="\\d*")
 @Size(min=5, max=5)
 @ReportAsSingleViolation
-@Constraint(validatedBy = FrenchZipcodeValidator.class)
+@Constraint(validatedBy = {})
 @Documented
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RUNTIME)
-public @interface FrenchZipcode {
-    String message() default "Wrong zipcode";
+public @interface Zipcode {
+    String message() default "{my.zipcode.validation} {country}";
     Class<?>[] groups() default {};
+    String country();
     Class<? extends Payload>[] payload() default {};
 
     @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
     @Retention(RUNTIME)
     @Documented
     @interface List {
-        FrenchZipcode[] value();
+        Zipcode[] value();
     }
 }
