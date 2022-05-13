@@ -31,6 +31,7 @@ public class CommandsWithValidatedOptions {
                            @ShellOption("-n") String number) {
         return "Phone number successfully set to " + number;
     }
+
     @ShellMethod("Set password.")
     public String setPassword(@Size(min = 8, max = 40, message = "{my.password.size.message} ") @ShellOption("-p") String password) {
         return "Password successfully set to " + password;

@@ -24,16 +24,20 @@ public class SecondGroupCommands {
     private void enableFooBar(){
         foobarFlag = true;
     }
+
     @ShellMethod("foo")
     @ShellMethodAvailability("availabilityCheck") // check navigation to 'availabilityCheck' method
     private String foo(){
         return "foo";
     }
+
     @ShellMethod(value = "bar", key = "bar")
     @ShellMethodAvailability("availabilityCheck") // check navigation to 'availabilityCheck' method
     private String barMethod(){
         return "bar";
     }
+
+    // should not be shown as not used since it is referenced in @ShellMethodAvailability annotations
     public Availability availabilityCheck() {
         return foobarFlag
                 ? Availability.available()
@@ -44,10 +48,12 @@ public class SecondGroupCommands {
     private String boo(){
         return "boo";
     }
+
     @ShellMethod(value = "buzz", key = "buzz")
     private String buzzMethod(){
         return "buzz";
     }
+
     @ShellMethodAvailability(value = {"boo","buzz"}) // check navigation
     //@ShellMethodAvailability(value = {"boo","buzzMethod"}) // buzzMethod here should not be navigable
     public Availability checkDay() {

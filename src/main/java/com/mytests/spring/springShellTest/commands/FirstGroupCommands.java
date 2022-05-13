@@ -17,7 +17,7 @@ public class FirstGroupCommands {
 
   private boolean helloFlag;
 
-  //@ShellMethod() - check the "Command description cannot be null or empty" error: #value is mandatory
+  //@ShellMethod() //- check the "Command description cannot be null or empty" error: #value is mandatory
   @ShellMethod(value = "hello command.", key = "sayHi")
   public String firstCommand(){
     this.helloFlag = true;
@@ -29,7 +29,7 @@ public class FirstGroupCommands {
     return "have a nice day!";
   }
 
-  // should not be shown as not used
+  // should not be shown as not used since it is referenced implicitly due to the conventional name
   public Availability secondCommandAvailability() {
     return helloFlag
             ? Availability.available()
