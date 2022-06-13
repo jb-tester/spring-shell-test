@@ -20,6 +20,7 @@ import static java.util.Calendar.*;
 public class SecondGroupCommands {
 
     private boolean foobarFlag = false;
+
     @ShellMethod(value = "enable foo and bar.", key = "add-foobar")
     private void enableFooBar(){
         foobarFlag = true;
@@ -58,7 +59,7 @@ public class SecondGroupCommands {
     //@ShellMethodAvailability(value = {"boo","buzzMethod"}) // buzzMethod here should not be navigable
     public Availability checkDay() {
         int day = Calendar.getInstance().get(DAY_OF_WEEK);
-        return ((day != SUNDAY) && (day != FRIDAY))
+        return ((day != SUNDAY) && (day != SATURDAY))
                 ? Availability.available()
                 : Availability.unavailable("we don't work on weekend");
     }
