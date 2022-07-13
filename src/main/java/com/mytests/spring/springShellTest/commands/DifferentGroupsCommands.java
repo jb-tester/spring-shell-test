@@ -30,4 +30,7 @@ public class DifferentGroupsCommands {
         return a + b;
     }
 
+    @ShellMethod(value = "multiply.", group = "Second Group Commands")
+    public int mult(int a, int b){return a*b;}
+
 }

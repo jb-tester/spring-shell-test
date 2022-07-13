@@ -54,7 +54,7 @@ public class ThirdGroupCommands {
         return Availability.available();
     }
     public Availability bar() {
-        return Availability.available();
+        return Availability.unavailable("bar");
     }
     public Availability sumAvailability() {
         return Availability.unavailable("hehe");
