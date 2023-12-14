@@ -17,6 +17,10 @@ public class FirstGroupCommands {
 
   private boolean helloFlag;
 
+  @ShellMethod(value = "mycommand")
+  public String mycommand(){
+    return "I'm the only allowed command";
+  }
   //@ShellMethod() //- check the "Command description cannot be null or empty" error: #value is mandatory
   @ShellMethod(value = "hello command.", key = "sayHi")
   public String firstCommand(){
